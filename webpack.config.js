@@ -19,7 +19,19 @@ module.exports = {
       },{
           loader:'less-loader'
       }]
-     }]
+     },{
+        test: /\.css$/,
+        loader:[{
+            loader:'style-loader'
+        },{
+            loader:'css-loader'
+        }]
+       },{ 
+           test:/\.(png|woff|svg|ttf|eot)$/,
+           loader:'url-loader'
+        }
+    
+    ]
     },
     plugins: [
       new UglifyJSPlugin({
