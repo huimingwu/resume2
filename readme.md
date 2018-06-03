@@ -5,8 +5,7 @@
 
 JavaScript
 
-- [Browserify](http://browserify.org/) with ES6/2015 support through [Babel](https://babeljs.io/)
-- Node
+- [Node](https://nodejs.org/)
 
 CSS
 
@@ -24,7 +23,7 @@ HTML
 
 服务器
 
-- [BrowserSync](http://www.browsersync.io/)
+- [webpack-dev-server](https://www.npmjs.com/package/webpack-dev-server)
 
 Linting
 
