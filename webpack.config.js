@@ -5,6 +5,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextWebapckPlugin = require('extract-text-webpack-plugin');
 var lessExtract = new ExtractTextWebapckPlugin('./css/index.css');
 var cssExtract = new ExtractTextWebapckPlugin('css/iconfont.css');
+// 压缩css
+var OptmizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 // var autoprefixer = require('autoprefixer');
 
 
@@ -54,11 +56,15 @@ module.exports = {
           template: 'src/index.html',
           // 打包后文件名称，会自动放到 output 指定的 dist 目录
           filename: 'index.html',
-          minify: { 
-              removeAttributeQuotes: true,
-              removeComments: true,
-              collapseWhitespace: false
+          minify: {
+            removeAttributeQuotes: true, // 移除属性的引号
         }
-      })
+      }),
+      new OptmizeCssAssetsPlugin({
+        assetNameRegExp: /\.css$/g,
+        cssProcessor: require('cssnano'),
+        cssProcessorOptions: {discardComments:{removeAll: true}},
+        canPrint: true
+        })
     ]
 }
